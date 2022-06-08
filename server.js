@@ -5,7 +5,7 @@ const bodyparser = require('body-parser');
 const path = require('path');
 const cors = require('cors');
 
-const port = 4000;
+const port = 3000;
 
 const UserRoutes = require('./Routes/user')
 const PrduitRoutes = require('./Routes/produit')
