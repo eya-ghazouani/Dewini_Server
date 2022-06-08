@@ -10,6 +10,7 @@ const UserSchema = new mongoose.Schema({
     adresse:{type: String, required: true},
     medicaments:[{ type: mongoose.Types.ObjectId, ref: "produit" }],
     reservations:[{ type: mongoose.Types.ObjectId, ref: "reservation" }],
+    donnations:[{ type: mongoose.Types.ObjectId, ref: "donnation" }],
 })
 
 module.exports = mongoose.model('user', UserSchema);
