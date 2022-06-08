@@ -8,6 +8,7 @@ const UserSchema = new mongoose.Schema({
     avatar:{type: String, required: true },
     password:{type: String, required: true},
     adresse:{type: String, required: true},
+    role:{type: String, default: 'user'},
     medicaments:[{ type: mongoose.Types.ObjectId, ref: "produit" }],
     reservations:[{ type: mongoose.Types.ObjectId, ref: "reservation" }],
     donnations:[{ type: mongoose.Types.ObjectId, ref: "donnation" }],

@@ -16,7 +16,7 @@ const GetAll = async (req, res) => {
 }
 
 const Reservation = async(req, res) =>{
-    const { qte_reserv  , iduser, idproduit} = req.body;
+    const { qte_reserv  , iduser, idproduit, confirm} = req.body;
     
     let date_reserv = moment(new Date()).format('DD-MM-YYYY');
     const NewReservation= new reservation({
@@ -24,7 +24,7 @@ const Reservation = async(req, res) =>{
         date_reserv,
         idproduit,
         iduser,
-        confirm: null,
+        confirm,
         ordonnance: req.file.filename,
     });
 

@@ -22,7 +22,7 @@ const Ajouter = async (req, res) => {
 
     hashedPass = await bcrypt.hash(password, 10);
 
-    let avatar= 'avaatar.png';
+    let avatar= 'avatar.png';
     if (req.file) {
         avatar= req.file.filename;
     }
@@ -34,7 +34,7 @@ const Ajouter = async (req, res) => {
         prenom, 
         adresse, 
         tel,
-        avatar
+        avatar,
     });
 
     try {
@@ -84,7 +84,7 @@ const Register = async (req, res) => {
 
     const hashedPass = await bcrypt.hash(password, 10);
 
-    let avatar= 'avaatar.png';
+    let avatar= 'avatar.png';
     if (req.file) {
         avatar= req.file.filename;
     }
@@ -95,7 +95,8 @@ const Register = async (req, res) => {
         prenom, 
         adresse, 
         tel,
-        avatar
+        avatar,
+        
     });
     
 
@@ -181,14 +182,16 @@ const Delete = async(req, res) => {
     if (!existinguser) {
         return res.status(200).json({success: false, message: "User Doesn't Exist!!"})
     }
+    if (existinguser.avatar !== 'avatar.png' && existinguser.avatar !== 'avaatar.png') {
 
-    let path = `./uploads/images/${existinguser.avatar}`;
-    try {
-        fs.unlinkSync(path)
-        //file removed
-    } catch(error) {
-        console.log(error);
-        return res.status(200).json({success: false, message: error, error: error})
+        let path = `./uploads/images/${existinguser.avatar}`;
+        try {
+            fs.unlinkSync(path)
+            //file removed
+        } catch(error) {
+            console.log(error);
+            return res.status(200).json({success: false, message: error, error: error})
+        }
     }
     
     try {

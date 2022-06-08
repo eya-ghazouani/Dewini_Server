@@ -79,10 +79,23 @@ const Response = async(req, res) => {
         return res.status(200).json({success: false, message: "donnation Doesn't Exist!!"})
     }
 
+    let existingproduit;
+    try {
+        existingproduit = await produit.findById(existingdonnation.idproduit);
+    } catch (error) {
+        return res.status(500).json({success: false, message: "something went wrong find ", data: error});
+    }
+
+    if ( confirm ){
+        existingproduit.qte = existingdonnation.qte_don;
+    } 
+
+    existingproduit.etat = confirm;
     existingdonnation.confirm = confirm;
 
     try {
         await existingdonnation.save();
+        await existingproduit.save();
     } catch (error) {
         return res.status(500).json({message: "something went wrong with DB", error: error})
     }

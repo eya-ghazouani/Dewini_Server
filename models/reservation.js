@@ -10,7 +10,8 @@ const reservationSchema = new mongoose.Schema({
         required: true
     },
     confirm:{
-        type:Boolean
+        type:Boolean,
+        default: null
     },
     ordonnance:{
         type: String, 

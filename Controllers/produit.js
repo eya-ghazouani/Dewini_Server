@@ -8,7 +8,20 @@ const bcrypt = require('bcryptjs');
 const Ajouter = async (req, res) => {
     const { title, qte, deadline, type,forme, category, userid } = req.body;
     
-    console.log(req.body);
+    // console.log(req.body);
+
+    // let existingproduit;
+    // try {
+    //     existingproduit = await produit.find({title : title, type: type, forme: forme });
+    // } catch (error) {
+    //     return res.status(500).json({success: false, message: "something went wrong with DB", error: error})
+    // }
+    
+    // if (existingproduit) {
+    //     return res.status(405).json({success: false, message: "No Donation Found!"})
+    // }
+
+
     let Newproduit;
     if (type === 'Medicament'){
         Newproduit = new produit({
