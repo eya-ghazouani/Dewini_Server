@@ -227,10 +227,11 @@ const updateproduit = async(req, res) => {
     existingproduit.forme = forme;
     existingproduit.deadline = deadline;
     existingproduit.category = category;
+    existingproduit.qte = qte;
+
     if (req.file){
         existingproduit.image = req.file.filename;
     }
-    existingproduit.qte = qte;
 
     try {
         await existingproduit.save();

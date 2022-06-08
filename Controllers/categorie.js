@@ -16,7 +16,7 @@ const GetAll = async (req, res) => {
 const Ajouter = async (req, res) => {
     const { nom } = req.body;
 
-    let image = 'avataar.png';
+    let image = 'avaatar.png';
     if (req.file) {
         image = req.file.filename;
     }

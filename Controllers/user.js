@@ -14,6 +14,18 @@ const transporter = nodemailer.createTransport({
 
 const Ajouter = async (req, res) => {
     const { email, nom, prenom, adresse, tel } = req.body;
+
+    let existinguser;
+    try {
+        existinguser = await user.findOne({ email: email});
+    } catch (error) {
+        return res.status(500).json({success: false, message: "something went wrong with DB", error: error})
+    }
+    
+    if (existinguser) {
+        return res.status(200).json({success: false, message: "Cet utilisateur déja existe!"})
+    }
+
     console.log(req.body)
     let password = generator.generate({
         length: 10,
@@ -65,7 +77,7 @@ const Ajouter = async (req, res) => {
         }
     });
     
-    return res.status(201).json({success: true, message: "success", data: NewUser});
+    return res.status(201).json({success: true, message: "Utilisateur ajouté avec succès", data: NewUser});
 }
 
 const Register = async (req, res) => {
@@ -235,7 +247,7 @@ const updateuser = async(req, res) => {
         return res.status(500).json({success: false, message: "something went wrong with DB", error: error})
     }
     
-    return res.status(201).json({success: true, message: "Vos coordonnées modifiées avec succès", data: existinguser});
+    return res.status(201).json({success: true, message: "Coordonnées modifiées avec succès", data: existinguser});
 
 }
 
