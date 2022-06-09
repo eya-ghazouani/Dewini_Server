@@ -32,7 +32,7 @@ const Ajouter = async (req, res) => {
         res.status(500).json({success: false, message: "something went wrong with DB", error: error})
     }
     
-    res.status(201).json({success: true, message: "success", data: NewCategorie});
+    res.status(201).json({success: true, message: "Catégorie ajoutée avec succès", data: NewCategorie});
 }
 
 const FindById = async(req, res) => {
@@ -117,7 +117,7 @@ const updatecategorie = async(req, res) => {
         return res.status(500).json({success: false, message: "something went wrong with DB", error: error})
     }
     
-    return res.status(201).json({success: true, message: "Updates succefelly", data: existingcategorie});
+    return res.status(201).json({success: true, message: "Catégorie modifiée avec succés", data: existingcategorie});
 
 }
 

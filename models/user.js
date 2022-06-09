@@ -11,7 +11,6 @@ const UserSchema = new mongoose.Schema({
     role:{type: String, default: 'user'},
     medicaments:[{ type: mongoose.Types.ObjectId, ref: "produit" }],
     reservations:[{ type: mongoose.Types.ObjectId, ref: "reservation" }],
-    donnations:[{ type: mongoose.Types.ObjectId, ref: "donnation" }],
 })
 
 module.exports = mongoose.model('user', UserSchema);

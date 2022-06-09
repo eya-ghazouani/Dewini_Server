@@ -5,14 +5,13 @@ const bodyparser = require('body-parser');
 const path = require('path');
 const cors = require('cors');
 
-const port = 3000;
+const port = 4000;
 
 const UserRoutes = require('./Routes/user')
 const PrduitRoutes = require('./Routes/produit')
 const CategorieRoutes=require('./Routes/categorie')
 const ReservationRoutes=require('./Routes/reservation')
 const StatsRoutes=require('./Routes/stats');
-const DonRoutes=require('./Routes/donnation');
 
 const server = express()
 const http = require('http').Server(server);
@@ -39,7 +38,6 @@ server.use('/produit', PrduitRoutes);
 server.use('/categorie', CategorieRoutes)
 server.use('/reservation', ReservationRoutes)
 server.use('/stats', StatsRoutes)
-server.use('/don', DonRoutes)
 
 let users = [];
 

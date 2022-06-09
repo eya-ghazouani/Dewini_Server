@@ -10,7 +10,8 @@ const produitSchema = new mongoose.Schema({
     userid:{ type: mongoose.Types.ObjectId, required: true, ref: "user" },
     image:{type: String},
     etat:{type:Boolean},
-    qte_initial:{type: Number},
+    date_don:{
+        type:String},
 
 })
 

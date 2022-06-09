@@ -58,12 +58,12 @@ const Ajouter = async (req, res) => {
     var mailOptions = {
         from: 'tunisie.free.medicine@gmail.com',
         to: email,
-        subject: ' BienVenue Chez tunise medicie',
-        text: ' BienVenue Chez tunisie medicine',
+        subject: ' BienVenue Chez Sama Tounes',
+        text: ' BienVenue Chez Sama Tounes',
 
-        html: `<h1 style="color: blue">Tunisie Medicine</h1>
-            <h3 style="color: black">Account Management</h3>
-            <b style="color: black"> Mr(s) ${nom} ${prenom} you are welcome to use our App. and here's your credintials:<h3> votre email:</h3></b>
+        html: `<h1 style="color: blue">Sama Tounes</h1>
+            <h3 style="color: black">Gestion de compte</h3>
+            <b style="color: black">  ${prenom} ${nom} Vous etes invités à utiliser notre application "Dewini". Et voici vos identifiants:<h3> Votre email:</h3></b>
             <h3 style="color: #1155CC " ><u>${email}</u></h3>
             <h3 style="color: black"> Et Votre Mot de Passe est: </h3>
             <h3 style="color: #1155CC " >${password}</h3>`,
